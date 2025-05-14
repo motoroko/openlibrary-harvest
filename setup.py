@@ -5,7 +5,7 @@ setup(
     name='openlibrary-harvest',
     version='0.1.0',
     #packages=find_packages(where="openlibrary_harvest"),  # Menggunakan find_packages() untuk mencari modul
-    packages=find_packages(include=['genre-harvest', 'genre-harvest.*']),
+    packages=find_packages(include=['genre_harvest', 'genre_harvest.*']),
     install_requires=[
         'tqdm',
     ],

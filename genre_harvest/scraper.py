@@ -6,18 +6,20 @@ import os
 
 def fetch_genres_playwright(isbn: str, script_path: str = None) -> Dict:
     if script_path is None:
-        script_path = os.path.join(os.path.dirname(__file__), "..", "scrape_openlibrary.js")
+        script_path = os.path.join(os.path.dirname(__file__), "scrape_openlibrary.js")
     try:
         result = subprocess.run(
             ["node", script_path, isbn],
             capture_output=True,
             text=True,
-            timeout=20
+            timeout=20,
+            encoding="utf-8"  # Explicitly set encoding to avoid UnicodeDecodeError
         )
         if result.returncode == 0:
             return json.loads(result.stdout)
         else:
-            return {"isbn": isbn, "genres": [], "error": result.stderr.strip()}
+            error_message = result.stderr.strip() if result.stderr else "Unknown error"
+            return {"isbn": isbn, "genres": [], "error": error_message}
     except Exception as e:
         return {"isbn": isbn, "genres": [], "error": str(e)}
 

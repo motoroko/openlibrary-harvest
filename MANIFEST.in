@@ -1,1 +1,3 @@
-include openlibrary_harvest/*
+include requirements.txt
+include scrape_openlibrary.js
+recursive-include genre-harvest *

@@ -7,7 +7,7 @@ setup(
     #packages=find_packages(where="openlibrary_harvest"),  # Menggunakan find_packages() untuk mencari modul
     packages=find_packages(include=['genre_harvest', 'genre_harvest.*']),
     install_requires=[
-        'tqdm',
+        'tqdm','playwright'
     ],
     include_package_data=True,
     package_data={'': ['scrape_openlibrary.js']},  # Pastikan file js dimasukkan jika diperlukan

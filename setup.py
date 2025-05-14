@@ -1,9 +1,11 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='openlibrary_harvest',
+    #name='openlibrary_harvest',
+    name='openlibrary-harvest',
     version='0.1.0',
-    packages=find_packages(where="openlibrary_harvest"),  # Menggunakan find_packages() untuk mencari modul
+    #packages=find_packages(where="openlibrary_harvest"),  # Menggunakan find_packages() untuk mencari modul
+    packages=find_packages(include=['genre-harvest', 'genre-harvest.*']),
     install_requires=[
         'tqdm',
     ],
